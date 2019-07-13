@@ -40,19 +40,27 @@
   
    <input type="submit" value="Sign up!"> 
       <script> 
-        $("#zip").on("change", function(){
-            alert($("#zip").val());
-        });//zip
-        
-         $.ajax({
-          method: "GET",
-          url: "http://cst336.herokuapp.com/projects/api/cityInfoAPI.php",
-          dataType: "json",
-          data:  {"zip" : $("#zip").val() },
-          success: function(result, status){
-              alert(result);
-          }
-         });//Ajax
+     $("#zip").on("change", function(){
+     $.ajax({
+      method: "GET",
+      url: "https://cst336.herokuapp.com/projects/api/cityInfoAPI.php",
+      dataType: "json",
+      data:  {"zip" : $("#zip").val() },
+      success: function(result, status){
+        if(result){
+          zipFound = true;
+          $("#city").html(result.city);
+          $("#latitude").html(result.latitude);
+          $("#longitude").html(result.longitude);
+        }
+        else{
+          // invalid zip
+            $("#zipStatus").html("<span class='alert alert-danger' role='alert'>Invalid zip.</span>");
+            zipFound = false;
+        }    
+    }
+    }); // ajax
+  }); // zip
       </script>
     </body>
 </html>
