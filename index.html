@@ -22,8 +22,8 @@
                   <input type="radio" name="gender" value="f"> Female<br><br>
       Zip Code:  <input type="text" name="zip" id="zip"><br>
       City:       <span id="city"></span>
-      Latitude:   <br>
-      Longitude: <br><br>
+      Latitude:   <span id="long"></span><br>
+      Longitude: <span id="lat"></span><br><br>
       State:
       <select id="state" name="state">
         <option value="">Select One</option>
@@ -50,8 +50,8 @@
         if(result){
           zipFound = true;
           $("#city").html(result.city);
-          $("#latitude").html(result.latitude);
-          $("#longitude").html(result.longitude);
+          $("#long").html(result.longitude);
+          $("#lat").html(result.latitude);
         }
         else{
           // invalid zip
