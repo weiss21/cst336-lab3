@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
     </head>
-    <body>
+    <body onload="loadStates()" class="d-flex flex-column">
       <h1>Sign Up</h1>
       
       First Name: <input type="text" name="fName"><br>
@@ -26,10 +26,6 @@
       Longitude: <span id="lat"></span><br><br>
       State:
       <select id="state" name="state">
-        <option value="">Select One</option>
-        <option value="ca">California</option>
-        <option value="ny">New York</option>
-        <option value="tx">Texas</option>
     </select><br />    
      
    Select a County: <selct id="county"></selct><br><br>
