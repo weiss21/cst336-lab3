@@ -35,45 +35,11 @@
    Select a County: <selct id="county"></selct><br><br>
    
    Desired Username:  <input type="text"  id="username" name="username"><br>
+          <span id="usernameError"></span></div>
    Password:  <input type="password"  id="password" name="password"><br> 
    Password Again: <input type="password"  id="passwordAgain"><br> 
   
    <input type="submit" value="Sign up!"> 
-      <script> 
-     $("#zip").on("change", function(){
-     $.ajax({
-      method: "GET",
-      url: "https://cst336.herokuapp.com/projects/api/cityInfoAPI.php",
-      dataType: "json",
-      data:  {"zip" : $("#zip").val() },
-      success: function(result, status){
-        if(result){
-          zipFound = true;
-          $("#city").html(result.city);
-          $("#long").html(result.longitude);
-          $("#lat").html(result.latitude);
-        }
-        else{
-          // invalid zip
-            $("#zipStatus").html("<span class='alert alert-danger' role='alert'>Invalid zip.</span>");
-            zipFound = false;
-         }    
-         }
-     }); // ajax
-    }); // zip
-        
-        $.ajax({
-       method: "GET",
-      url: "https://cst336.herokuapp.com/projects/api/countyListAPI.php",
-      dataType: "json",
-      data:  {"state" : $("#state").val() },
-      success: function(result, status){
-     //alert(result[0].county);
-        result.forEach(function(i){
-              $("#county").append("<option>" + i.county + "</option>");      
-        });
-    }
-    }); //county
-      </script>
+      <script src="js/java.js"></script>
     </body>
 </html>
