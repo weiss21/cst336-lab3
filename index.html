@@ -21,7 +21,7 @@
       Gender:     <input type="radio" name="gender" value="m"> Male
                   <input type="radio" name="gender" value="f"> Female<br><br>
       Zip Code:  <input type="text" name="zip" id="zip"><br>
-      City:       <span id="city"></span>
+      City:       <span id="city"></span><br>
       Latitude:   <span id="long"></span><br>
       Longitude: <span id="lat"></span><br><br>
       State:
@@ -57,10 +57,23 @@
           // invalid zip
             $("#zipStatus").html("<span class='alert alert-danger' role='alert'>Invalid zip.</span>");
             zipFound = false;
-        }    
+         }    
+         }
+     }); // ajax
+    }); // zip
+        
+        $.ajax({
+       method: "GET",
+      url: "https://cst336.herokuapp.com/projects/api/countyListAPI.php",
+      dataType: "json",
+      data:  {"state" : $("#state").val() },
+      success: function(result, status){
+     //alert(result[0].county);
+        result.forEach(function(i){
+              $("#county").append("<option>" + i.county + "</option>");      
+        });
     }
-    }); // ajax
-  }); // zip
+    }); //county
       </script>
     </body>
 </html>
