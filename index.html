@@ -2,22 +2,56 @@
 <html lang="en">
     <head>
       <meta charset="utf-8" />
-        <title></title>
+        <title> Sign Up Page</title>
         <link  href="css/styles.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
     </head>
     <body>
-      <form>
-        
-      </form>
+      <h1>Sign Up</h1>
       
-      <script src ="js/.js"></script>
+      First Name: <input type="text" name="fName"><br>
+      Last Name: <input type="text" name="lName"><br>
+      Gender:     <input type="radio" name="gender" value="m"> Male
+                  <input type="radio" name="gender" value="f"> Female<br><br>
+      Zip Code:  <input type="text" name="zip" id="zip"><br>
+      City:       <span id="city"></span>
+      Latitude:   <br>
+      Longitude: <br><br>
+      State:
+      <select id="state" name="state">
+        <option value="">Select One</option>
+        <option value="ca">California</option>
+        <option value="ny">New York</option>
+        <option value="tx">Texas</option>
+    </select><br />    
+     
+   Select a County: <selct id="county"></selct><br><br>
+   
+   Desired Username:  <input type="text"  id="username" name="username"><br>
+   Password:  <input type="password"  id="password" name="password"><br> 
+   Password Again: <input type="password"  id="passwordAgain"><br> 
+  
+   <input type="submit" value="Sign up!"> 
+      <script> 
+        $("#zip").on("change", function(){
+            alert($("#zip").val());
+        });//zip
+        
+         $.ajax({
+          method: "GET",
+          url: "https://cst336.herokuapp.com/projects/api/cityInfoAPI.php",
+          dataType: "json",
+          data:  {"zip" : $("#zip").val() },
+          success: function(result, status){
+              alert(result);
+          } //Ajax
+      </script>
     </body>
 </html>
