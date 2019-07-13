@@ -23,20 +23,23 @@ $("#zip").on("change", function() {
   }); // ajax
 }); // zip
 
-$.ajax({
-  method: "GET",
-  url: "https://cst336.herokuapp.com/projects/api/countyListAPI.php",
-  dataType: "json",
-  data: {
-    "state": $("#state").val()
-  },
-  success: function(result, status) {
-    //alert(result[0].county);
-    result.forEach(function(i) {
-      $("#county").append("<option>" + i.county + "</option>");
-    });
-  }
-}); //county
+ $("#state").on("change", function(){
+    $.ajax({
+      method: "GET",
+      url: "https://cst336.herokuapp.com/projects/api/countyListAPI.php",
+      dataType: "json",
+      data: {"state": $("#state").val() },
+      success: function(result, status){
+        //alert(result[0].county);
+        $("#county").html("<option>Select One</option>")
+        for(let i=0; i < result.length; i++)
+          {
+            $("#county").append("<option>" + result[i].county + "</option>");
+          }
+      }
+           
+    }); // ajax
+  }); // state
 
 $("#username").on("change", function() {
   //alert($("#username").val());
@@ -90,7 +93,6 @@ function loadStates() {
       "usps": $("#state").val()
     },
     success: function(result, status) {
-      //alert(result[0].usps);
       $("#state").html("<option>Select One</option>")
       for (let i = 0; i < result.length; i++) {
         $("#state").append("<option>" + result[i].usps + "</option>");
