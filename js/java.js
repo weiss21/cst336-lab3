@@ -4,6 +4,8 @@ var usernameAvailable = false;
 //Listeners
 
 $("#zip").on("change", function() {
+  $('#zipError').html("");
+
   $.ajax({
     method: "GET",
     url: "https://cst336.herokuapp.com/projects/api/cityInfoAPI.php",
@@ -13,18 +15,29 @@ $("#zip").on("change", function() {
     },
     success: function(result, status) {
       if (result) {
-        zipFound = true;
-        $("#city").html(result.city);
-        $("#long").html(result.longitude);
-        $("#lat").html(result.latitude);
+        $('#city').html(result.city);
+        $('#latitude').html(result.latitude);
+        $('#longitude').html(result.longitude);
       } else {
-        // invalid zip
-        $("#zipStatus").html("<span class='alert alert-danger' role='alert'>Invalid zip.</span>");
-        zipFound = false;
+        $('#zipError').html("Zip code not found.");
+
+        $('#city').html('');
+        $('#latitude').html('');
+        $('#longitude').html('');
       }
+    },
+    error: function() {
+      $('#zipError').html("Zip code not found.");
+      $('#zipError').addClass("error");
+      $("#zipError").removeClass("success");
+
+      $('#city').html('');
+      $('#latitude').html('');
+      $('#longitude').html('');
     }
   }); // ajax
-}); // zip
+});
+
 
 $("#state").on("change", function() {
   $.ajax({

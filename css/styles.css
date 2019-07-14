@@ -1,3 +1,6 @@
+@color-primary: @green;
+@color-primary-strong: darken(saturate(@color-primary, 5%), 10%);
+
 html,
 body {
   height: 100%;
@@ -6,4 +9,9 @@ body {
   font-size: 15px; // font-size: 1vw;
   color: @grey-dark;
   background-color: @grey-light;
+}
+
+h1 {
+    color: @color-primary-strong;
+    padding-bottom: 40px;
 }
