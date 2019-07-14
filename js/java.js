@@ -20,7 +20,7 @@ $("#zip").on("change", function() {
         $('#longitude').html(result.longitude);
       } else {
         $('#zipError').html("Zip code not found.");
-
+        $('#zipError').css("color", "red")
         $('#city').html('');
         $('#latitude').html('');
         $('#longitude').html('');
@@ -28,8 +28,7 @@ $("#zip").on("change", function() {
     },
     error: function() {
       $('#zipError').html("Zip code not found.");
-      $('#zipError').addClass("error");
-      $("#zipError").removeClass("success");
+      $('#zipError').css("color", "red")
 
       $('#city').html('');
       $('#latitude').html('');
