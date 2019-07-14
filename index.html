@@ -23,18 +23,18 @@
 
 
         <form id="signupForm" method="POST" action="welcome.html">
-          <div class="form-group">
-            <label>First Name:</label>
-              <input type="text" class="form-control" name="fName">
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">First Name:</label>
+            <input type="text" class="form-control" name="fName">
           </div>
 
-          <div class="form-group">
+          <div class="form-group row">
             <label class="col-sm-2 col-form-label">Last Name:</label>
             <div class="col-sm-4">
               <input type="text" class="form-control" name="lName">
             </div>
           </div>
-
+          
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Gender</label>
             <div class="col-sm-2">
@@ -45,28 +45,32 @@
           </div>
           <hr />
 
-              <div class="form-group row">
-                <label>Zip Code:</label>
-                  <input type="text" class="form-control" name="zip" id="zip">
-                  <span id="zipError" class="error"></span>
-
-
+          <div class="row">
             <div class="col-6">
               <div class="form-group row">
-                <label class="col col-form-label">City:</label>
-                <div class="col">
+                <label class="col-2 col-form-label">Zip Code:</label>
+                <div class="col-4">
+                  <input type="text" class="form-control" name="zip" id="zip">
+                  <span id="zipError" class="error"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group row">
+                <label class="col-2 col-form-label">City:</label>
+                <div class="col-4">
                   <span class="output" id="city"></span>
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col col-form-label">Latitude:</label>
-                <div class="col">
+                <label class="col-2 col-form-label">Latitude:</label>
+                <div class="col-4">
                   <span class="output" id="latitude"></span>
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col col-form-label">Longitude:</label>
-                <div class="col">
+                <label class="col-2 col-form-label">Longitude:</label>
+                <div class="col-4">
                   <span class="output" id="longitude"></span>
                 </div>
               </div>
@@ -75,9 +79,9 @@
           <hr />
 
           <div class="row">
-            <div class="col-4">
+            <div class="col-6">
               <div class="form-group row">
-                <label class="col-4 col-form-label">State:</label>
+                <label class="col-2 col-form-label">State:</label>
                 <div class="col-4">
                   <select id="state" class="form-control" name="state"></select><br />
                 </div>
@@ -86,7 +90,7 @@
 
             <div class="col-6">
               <div class="form-group row">
-                <label class="col-4 col-form-label">Select a County:</label>
+                <label class="col-2 col-form-label">Select a County:</label>
                 <div class="col-4">
                   <select id="county" class="form-control"></select>
                 </div>
@@ -100,11 +104,11 @@
             <div class="col-sm-4">
               <input class="form-control" type="text" id="username" name="username">
             </div>
-            <span class="col-sm-6" id="usernameError" class ="error"></span>
+            <span class="col-sm-3" id="usernameError" class="error"></span>
           </div>
 
           <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Password:</label>
+            <label class="col-sm-2 col-form-label">Password:</label>
             <div class="col-sm-4">
               <input class="form-control" type="password" id="password" name="password">
             </div>
@@ -112,7 +116,7 @@
           </div>
 
           <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Password Again:</label>
+            <label class="col-sm-2 col-form-label">Password Again:</label>
             <div class="col-sm-4">
               <input class="form-control" type="password" id="passwordAgain">
             </div>
