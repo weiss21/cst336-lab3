@@ -1,45 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-        <title> Sign Up Page</title>
-        <link  href="css/styles.css" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    </head>
-    <body onload="loadStates()" class="d-flex flex-column">
-      <h1>Sign Up</h1>
-      <form id="signupForm" method="POST" action="welcome.html">
-      First Name: <input type="text" name="fName"><br>
-      Last Name: <input type="text" name="lName"><br>
-      Gender:     <input type="radio" name="gender" value="m"> Male
-                  <input type="radio" name="gender" value="f"> Female<br><br>
-      Zip Code:  <input type="text" name="zip" id="zip"><br>
+<head>
+  <meta charset="utf-8" />
+  <title> Sign Up Page</title>
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body onload="loadStates()" class="d-flex flex-column">
+  <div class="container d-flex h-100 flex-column">
+    <div class="row flex-fill ">
+      <div class="col align-self-center content">
+        <h1>Sign Up</h1>
+
+
+        <form id="signupForm" method="POST" action="welcome.html">
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">First Name:</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" name="fName">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Last Name:</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" name="lName">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Gender</label>
+            <div class="col-sm-2">
+              <input type="radio" name="gender" value="m"> Male
+              <input type="radio" name="gender" value="f"> Female
+            </div>
+          </div>
+          <hr />
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group row">
+                <label class="col-4 col-form-label">Zip Code:</label>
+                <div class="col-4">
+                  <input type="text" class="form-control" name="zip" id="zip">
                   <span id="zipError" class="error"></span>
-      City:       <span id="city"></span><br>
-      Latitude:   <span id="long"></span><br>
-      Longitude: <span id="lat"></span><br><br>
-      State:
-      <select id="state" name="state">
-    </select><br />    
-     
-   Select a County: <select id="county"></select><br><br>
-   
-   Desired Username:  <input type="text"  id="username" name="username">
-          <br><span id="usernameError"></span>
-   Password:  <input type="password"  id="password" name="password"><br> 
-   Password Again: <input type="password"  id="passwordAgain"><br> 
-                  <span id="passwordAgainError"></span>
-                  <span id="passwordError"></span>
-  
-   <input type="submit" value="Sign up!"> 
-      </form>
-      <script src="js/java.js"></script>
-    </body>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group row">
+                <label class="col col-form-label">City:</label>
+                <div class="col">
+                  <span class="output" id="city"></span>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col col-form-label">Latitude:</label>
+                <div class="col">
+                  <span class="output" id="latitude"></span>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col col-form-label">Longitude:</label>
+                <div class="col">
+                  <span class="output" id="longitude"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group row">
+                <label class="col-4 col-form-label">State:</label>
+                <div class="col-4">
+                  <select id="state" class="form-control" name="state"></select><br />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group row">
+                <label class="col-4 col-form-label">Select a County:</label>
+                <div class="col-6">
+                  <select id="county" class="form-control"></select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Desired Username:</label>
+            <div class="col-sm-2">
+              <input class="form-control" type="text" id="username" name="username">
+            </div>
+            <span class="col-sm-6" id="usernameError"></span>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Password:</label>
+            <div class="col-sm-2">
+              <input class="form-control" type="password" id="password" name="password">
+            </div>
+            <span class="col-sm-6" id="passwordError" class="error"></span>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Password Again:</label>
+            <div class="col-sm-2">
+              <input class="form-control" type="password" id="passwordAgain">
+            </div>
+            <span class="col-sm-6" id="passwordAgainError" class="error"></span>
+          </div>
+
+          <div class="form-group row submit">
+            <div class="col-sm-2">
+              <input class="form-control" type="submit" value="Sign up!">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/java.js"></script>
+</body>
+
 </html>

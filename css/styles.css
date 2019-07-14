@@ -1,3 +1,13 @@
+@white: #fff;
+@grey-lightest: #f9f9f9;
+@grey-light: #e3e3e3;
+@grey: #e5e5e5;
+@grey-dark: #b9b9b9;
+@purple: #c68eaa;
+@green: #7ed321;
+@emerald: #04BDBD;
+@blue: #04AEC5;
+@blue-dark: #0F6CC9;
 @color-primary: @green;
 @color-primary-strong: darken(saturate(@color-primary, 5%), 10%);
 
