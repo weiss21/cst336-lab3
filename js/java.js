@@ -71,11 +71,11 @@ $("#username").on("change", function() {
       usernameAvailable = result.available;
       if (usernameAvailable) {
         // username is available
-        $("#usernameError").html("<br><br><span class='alert alert-success' role='alert'>Username available.<span>");
+        $("#usernameError").html("<br><span class='alert success' role='alert'>Username available.<span>");
         $("#usernameError").css("color", "green");
       } else {
         // username is already taken
-        $("#usernameError").html("<br><br><span class='alert alert-danger' role='alert'>Username already taken.</span>");
+        $("#usernameError").html("<br><span class='alert error' role='alert'>Username already taken.</span>");
         $("#usernameError").css("color", "red");
 
 
