@@ -89,8 +89,10 @@ $("#passwordAgain").on("change", function() {
     isValid = false;
     // console.log("passwords don't match");
     $("#passwordAgainStatus").html("<span class='alert alert-danger' role='alert'>Passwords do not match.</span>");
+    $("#passwordAgainStatus").css("color", "red");
   } else {
     $("#passwordAgainStatus").html("<span class='alert alert-success' role='alert'>Password OK.</span>");
+    $("#usernameError").css("color", "green");
   }
 }); // username 
 
@@ -128,16 +130,18 @@ function isFormValid() {
   if ($("#username").val().length == 0) {
     isValid = false;
     $("#usernameError").html("Username is required");
+    $("#usernameError").css("color", "red");
   }
 
   if ($("#password").val().length < 6) {
     isValid = false;
     $("#passwordLength").html("Password has to be at least 6 characters");
-
+    $("#passwordLength").css("color", "red");
   }
 
   if ($("#password").val() != $("#passwordAgain").val()) {
     $("#passwordAgainError").html("Password Mismatch!");
+    $("#passwordAgainError").css("color", "red");
     isValid = false;
 
   }
