@@ -26,23 +26,24 @@ $("#zip").on("change", function() {
   }); // ajax
 }); // zip
 
- $("#state").on("change", function(){
-    $.ajax({
-      method: "GET",
-      url: "https://cst336.herokuapp.com/projects/api/countyListAPI.php",
-      dataType: "json",
-      data: {"state": $("#state").val() },
-      success: function(result, status){
-        //alert(result[0].county);
-        $("#county").html("<option>Select One</option>")
-        for(let i=0; i < result.length; i++)
-          {
-            $("#county").append("<option>" + result[i].county + "</option>");
-          }
+$("#state").on("change", function() {
+  $.ajax({
+    method: "GET",
+    url: "https://cst336.herokuapp.com/projects/api/countyListAPI.php",
+    dataType: "json",
+    data: {
+      "state": $("#state").val()
+    },
+    success: function(result, status) {
+      //alert(result[0].county);
+      $("#county").html("<option>Select One</option>")
+      for (let i = 0; i < result.length; i++) {
+        $("#county").append("<option>" + result[i].county + "</option>");
       }
-           
-    }); // ajax
-  }); // state
+    }
+
+  }); // ajax
+}); // state
 
 $("#username").on("change", function() {
   //alert($("#username").val());
@@ -84,7 +85,6 @@ $("#signupForm").on("submit", function(event) {
   if (!isFormValid()) {
     event.preventDefault();
   }
-  console.log(isValid);
 });
 
 //Functions
@@ -106,33 +106,27 @@ function loadStates() {
   });
 }
 
-function isformValid() {
-    var isValid = true;
-    if (!usernameAvailable) {
-        isValid = false;
-    }
+function isFormValid() {
+  var isValid = true;
+  if (!usernameAvailable) {
+    isValid = false;
+  }
 
-    if ($("#username").val().length == 0) {
-        isValid = false;
-        $("#usernameError").html("Username is required");
-        $("#usernameError").addClass("error");
-        $("#usernameError").removeClass("success");
-    }
+  if ($("#username").val().length == 0) {
+    isValid = false;
+    $("#usernameError").html("Username is required");
+  }
 
-    $("#passwordAgainError").html("");
-    if ($("#password").val() != $("#passwordAgain").val()) {
-        $("#passwordAgainError").html("Password Mismatch!");
-        $("#passwordAgainError").addClass("error");
-        $("#passwordAgainError").removeClass("success");
-        isValid = false;
-    }
+  if ($("#password").val().length < 6) {
+    isValid = false;
+    $("#passwordLength").html("Password has to be at least 6 characters");
 
-    if ($("#password").val().length < 6) {
-        $("#passwordError").html("Password must be at least 6 characters long.");
-        $("#passwordError").addClass("error");
-        $("#passwordError").removeClass("success");
-        isValid = false;
-    }
+  }
 
-    return isValid;
+  if ($("#password").val() != $("#passwordAgain").val()) {
+    $("#passwordAgainError").html("Password Mismatch!");
+    isValid = false;
+
+  }
+  return isValid;
 }
