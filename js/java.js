@@ -1,3 +1,6 @@
+var usernameAvailable = false;
+
+
 //Listeners
 
 $("#zip").on("change", function() {
@@ -54,10 +57,12 @@ $("#username").on("change", function() {
       usernameAvailable = result.available;
       if (usernameAvailable) {
         // username is available
-        $("#usernameError").html("<span class='alert alert-success' role='alert'>Username available.<span>");
+        $("#usernameError").html("<br><br><span class='alert alert-success' role='alert'>Username available.<span>");
+        $("#usernameError").css("color", "green");
       } else {
         // username is already taken
-        $("#usernameError").html("<span class='alert alert-danger' role='alert'>Username already taken.</span>");
+        $("#usernameError").html("<br><br><span class='alert alert-danger' role='alert'>Username already taken.</span>");
+        $("#usernameError").css("color", "red");
 
 
       }
@@ -99,4 +104,35 @@ function loadStates() {
       }
     }
   });
+}
+
+function isformValid() {
+    var isValid = true;
+    if (!usernameAvailable) {
+        isValid = false;
+    }
+
+    if ($("#username").val().length == 0) {
+        isValid = false;
+        $("#usernameError").html("Username is required");
+        $("#usernameError").addClass("error");
+        $("#usernameError").removeClass("success");
+    }
+
+    $("#passwordAgainError").html("");
+    if ($("#password").val() != $("#passwordAgain").val()) {
+        $("#passwordAgainError").html("Password Mismatch!");
+        $("#passwordAgainError").addClass("error");
+        $("#passwordAgainError").removeClass("success");
+        isValid = false;
+    }
+
+    if ($("#password").val().length < 6) {
+        $("#passwordError").html("Password must be at least 6 characters long.");
+        $("#passwordError").addClass("error");
+        $("#passwordError").removeClass("success");
+        isValid = false;
+    }
+
+    return isValid;
 }

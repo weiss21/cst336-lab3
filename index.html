@@ -15,7 +15,7 @@
     </head>
     <body onload="loadStates()" class="d-flex flex-column">
       <h1>Sign Up</h1>
-      
+      <form id="signupForm" method="POST" action="welcome.html">
       First Name: <input type="text" name="fName"><br>
       Last Name: <input type="text" name="lName"><br>
       Gender:     <input type="radio" name="gender" value="m"> Male
@@ -30,12 +30,14 @@
      
    Select a County: <select id="county"></select><br><br>
    
-   Desired Username:  <input type="text"  id="username" name="username"><br>
-          <span id="usernameError"></span></div>
+   Desired Username:  <input type="text"  id="username" name="username">
+          <span id="usernameError"></span>
    Password:  <input type="password"  id="password" name="password"><br> 
    Password Again: <input type="password"  id="passwordAgain"><br> 
+                  <span id="passwordAgainError"></span>
   
    <input type="submit" value="Sign up!"> 
+      </form>
       <script src="js/java.js"></script>
     </body>
 </html>
